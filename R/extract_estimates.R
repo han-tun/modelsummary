@@ -48,7 +48,7 @@ extract_estimates <- function(model,
     }
 
     # make sure extracted estimates are supported by a `tidy` method
-    msg <- "`modelsummary` relies on the `broom` package's `tidy` function to extract parameter estimates. Applying `tidy` to one of your models did not produce a dataframe with one column named 'term'. Please check if `broom` supports your kind of model. If it does not, visit the `modelsummary` website to learn how to create your own `tidy` function."
+    msg <- '`modelsummary` relies on the `tidy` function from the `broom` package to extract parameter estimates from a model object. `tidy` did not produce the expected result for at least one of your models (`modelsummary` needs a dataframe with "term" and "estimate" columns). Please check if `broom` supports your kind of model. If it does not, consider installing packages which extend `broom`, such as `broom.mixed`. If all else fails, visit the `modelsummary` website to learn how to easily create your own `tidy` function: https://vincentarelbundock.github.io/modelsummary/articles/advanced.html'
     if (!inherits(est, 'data.frame')) {
         stop(msg)
     } 
